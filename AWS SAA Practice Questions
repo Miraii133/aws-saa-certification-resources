@@ -1,0 +1,441 @@
+AWS SAA Practice Questions
+
+Module3 Quiz Question:
+An IAM policy consists of one or more statements. A statement in an IAM Policy consists of the following:
+Effect
+Principal
+Version(✓) - A statement in an IAM Policy consists of Sid, Effect, Principal, Action, Resource, and Condition. Version is part of the IAM Policy itself, not the statement.
+Action
+Resource
+
+The following are true regarding EC2 Hibernate, EXCEPT:
+EC2 Instance Root Volume must be an Instance Store volume(✓)
+Supports On-Demand and Reserved Instances
+EC2 Instance RAM must be less than 150GB
+EC2 Instance Root Volume type must be an EBS volume
+
+Spot Fleet is a set of Spot Instances and optionally.....
+Reserved Instances
+On-Demand Instances(✓)
+Dedicated Hosts
+Dedicated Instances
+
+
+You have launched an EC2 instance with two EBS volumes, Root volume type and the other EBS volume type to store the data. A month later you are planning to terminate the EC2 instance. What's the default behavior that will happen to each EBS volume?
+Both the root volume type and the EBS volume type will be deleted
+The Root volume type will be deleted and the EBS volume type will not be deleted(✓)
+The Root volume type will not be deleted and the EBS volume type will be deleted
+Both the root volume type and the EBS volume type will not be deleted
+
+
+You would like to encrypt an unencrypted EBS volume attached to your EC2 instance. What should you do?
+Create an EBS snapshot of your EBS volume. Copy the snapshot and tick the option to encrypt the copied snapshot. Then, use the encrypted snapshot to create a new EBS volume(✓)
+Select your EBS volume, choose Edit attributes, then tick the Encrypt using KMS option
+Create a new encrypted EBS volume, then copy data from your unencrypted EBS volume to the new EBS volume
+Submit a request to AWS Support to encrypt your EBS volume
+
+
+You have a fleet of EC2 instances distributes across AZs that process a large data set. What do you recommend to make the same data to be accessible as an NFS drive to all of your EC2 instances?
+Use EBS
+Use EFS(✓) : EFS is a network file system (NFS) that allows you to mount the same file system on EC2 instances that are in different AZs.
+Use an Instance Store : An Instance Store is a physical hard drive attached to the hardware, thus cannot be used for NFS drive for EC2 Instances. It is good only for caches, and temporary file storage.
+
+You are running a high-performance database that requires an IOPS of 310,000 for its underlying storage. What do you recommend?
+Use an EBS gp2 drive
+Use an EBS io1 drive
+Use an EC2 Instance Store(✓) : You can run a database on an EC2 instance that uses an Instance Store, but you'll have a problem that the data will be lost if the EC2 instance is stopped (it can be restarted without problems). One solution is that you can set up a replication mechanism on another EC2 instance with an Instance Store to have a standby copy. Another solution is to set up backup mechanisms for your data. It's all up to you how you want to set up your architecture to validate your requirements. In this use case, it's around IOPS, so we have to choose an EC2 Instance Store.
+Use an EBS io2 Block Express drive
+
+Amazon Simple Storage Service (Amazon S3) provide a good solution for which of the following use cases?
+A data warehouse for business intelligence
+An Internet-accessible storage location for video files that an external website accesses(✓) : External websites can access these files by using cross-origin resource sharing (CORS)
+Hourly storage of frequently accessed temporary files
+A cluster for traditional Apache Spark and Apache Hadoop installtions to process big data
+
+A company is interested in using Amazon Simple Storage Service (Amazon S3) alone to host their website, instead of a traditional web server. Which types of ocntent does Amazon S3 support for static web hosting? (Select THREE)
+HTML Files and image files(✓)
+Client-side scripts(✓)
+Server-side scripts
+Dynamic HTML files
+Video and Sound files(✓)
+
+Which scenarios represent a good use for AWS S3? (Select Two)
+Housing the root volume of a live operating system
+Providing a mountable fiole system for Linux-based workloads
+Backing up critical data(✓)
+Exposing a vritual tape library to on-premises backup systems
+Storing computation and analytics data(✓)
+
+A company wants to use an S3 bucket to store sensitive data. Which actions can they take to protect their data? (Select Two)
+Uploading unencrypted files to Amazon S3 because Amazon S3 encrypts the files by default
+Enabling server-side encryption on the S3 bucket before uploading sensitive data(✓) : Server-side encryption must be enabled on a bucket before uploading objects. Existing objects must be re-uploaded to be encrypted at rest.
+Enabling server-side encryption on the S3 bucket after uploading sensitive data
+Using client-side encryption to protect data in transit(✓) : Server-side encryption does not encrypt data in transit; use client-side encryption instead.
+Using Secure File Transfer Protocol (SFTP) to connect directly to Amazon S3 : Use AWS Transfer instead for SFTP
+
+A company must create a common place to store shared files. Which requirements does Amazon Simple Storage Service (Amazon S3) support? (Select two)
+Recover deleted files(✓) : Although recovery of deleted files is available, it is not enabled by default.
+Maintain different versions of files(✓)
+Lock a file so that only one person at a time can edit it
+Attach comments to files
+Compare file contents between files
+
+A customer service team accesses case data daily for up to 30 days. Cases can be reopened and require immediate access for 1 year after they are closed. Which solution meets the requirements and is the most cost-efficient?
+Store all case data in S3 Standard so that it is available whenever needed.
+Store case data in S3 Standard. Use a lifecycle policy to move the data into S3 Standard-Infrequent Access (S3 Standard-IA) after 30 days.
+Store case data in S3 Standard. Use a lifecycle policy to move the data into Amazon S3 Glacier after 30 days.
+Store case data in S3 Intelligent-Tiering to automatically move data between tiers based on access frequency. (✓) : Although S3 Standard-IA also works, S3 Intelligent-Tiering is the most cost efficient.
+
+Which Amazon S3 unaccelerated data transfers have an associated cost? (Select Two)
+IN from the Internet
+OUT to the Internet (✓)
+OUT to other AWS Regions (✓)
+OUT to other AWS services in the same AWS Region
+Out to Amazon CloudFront 
+
+
+A video producer must regularly transfer several video files to AWS S3. The files range from 100-700M MB. The Internet connection has been unreliable, causing some uploads to fail. Which solution provides the fastest, most reliable, and most cost-effective way to transfer these files to Amazon S3?
+AWS Snowball
+Amazon S3 multipart uploads(✓) : Best for uploading large files when internet connection is unstable since files are split into smaller parts which can be resumed/suspended when needed.
+AWS Snowmobile
+AWS Management Console
+
+Which qualities vary by AWS Region? (Select TWO)
+Cost-effectiveness of workloads(✓)
+Data privacy
+High availability of workloads
+Service and feature availability(✓)
+Capacity for more customers
+
+Which attributes are reasons to choose Amazon Elastic Compute Cloud(AWS EC2)? (Select Two).
+Ability to run any type of workload(✓)
+Ability to run serverless applications
+AWS management of operating system patches
+AWS management of operating system security
+Complete control of computing resources(✓)
+
+What are the benefits of using an Amazon Machine Image (AMI)? (Select Three)
+Selling or sharing software solutions packaged as an AMI(✓)
+Automating security group settings for instances
+Using an AMI as a server backup for Amazon Elastic Compute Cloud (Amazon EC2) instances (✓)
+Launching instances with the same configuration(✓)
+Migrating data from on-premises to Amazon EC2 instances
+
+A system administrator must change the instance types of multiple running AWS EC2 instances. THe instances were launched with a mix of Amazon Elastic Block Store (AWS EBS)-backed AMI and instance store-backed AMIs. Which method is a valid way to change the instance type?
+Change the instance type of an Amazon EBS-backed instance without stopping it.
+Change the instance type of an instance store-backed instance without stopping it.
+Stop an Amazon EBS-backed instance, change its instance type, and start the instance.(✓)
+Stop and instance store-backed instance, change its instance type, and start the instance.
+
+A workload requires high read/write access to large local datasets. Which instance types would perform best for this workload? (Select two)
+General purpose
+Compute optimized
+Memory optimized(✓)
+Accelerated computing
+Storage optimized.(✓)
+
+An application requires the media access control (MAC) address of the host AWS EC2 instance. The architecture uses an AWS Auto Scaling grou pto dynamically launch and terminate instances. Which way is best for the application to obtain the MAC address?
+Write the MAC address in the application configuration file of each instance.
+Include the MAC address in the AMI that is used to launch all of the instances in the AWS Auto Scaling group.
+Include the MAC address in a custom AMI for each instance in the AWS Auto Scaling group.
+Use the user data of each instance to access the MAC address through the instance metadata.(✓) : Because the AWS Auto Scaling group launches the instances, the MAC address of each instance is unpredictable. The user data script can access the MAC address from the instance metadata when the instance starts, and then notify the application.
+
+A transactional workload on an AWS EC2 instance performs high amounts of frequent read and write operations. Which Amazon EBS volume type is best for this workload?
+General purpose SSD(SSD)
+Cold Hard Disk Drive (HDD)
+Provisioned IOPS SSD(SSD)
+Throughput optimized hard disk drive (HDD)
+
+It is possible to create an NFS share on an Amazon EBS-backed Linux instance by installing and configuring an NFS server on the instance. In this way, multiple Linux systems can share the file system of that instance. WHich advantages does Amazon EFS provide, compared to this solution?
+Strong consistency
+Automatic scaling(✓) : Amazon EBS does not scale automatically without Amazon EFS
+High availability(✓)
+File locking
+No need for backups
+
+Which feature does Amazon FSx for Windows File Server provide?
+Fully managed Windows file servers(✓)
+Microsoft Active Directory (Microsoft AD) server for Windows file servers
+Backup solution for on-premises Windows file servers
+Amazon management agent for Windows file serve
+
+Which descriptions of Amazon EC2 pricing options are correct? (Select two)
+On-Demand instances enables you to pay for compute capacity by usage time, with no long-term commitments.(✓)
+Reserved Instances are physical servers that are reserved exclusively for your use.
+Savings Plans are budgeting tools that help you manage Amazon EC2 costs.
+Dedicated Hosts are servers that are dedicated to one purpose, such as a firewall.
+Spot Instances offer spare compute capacity at discounted prices, and can be interrupted.(✓)
+
+A company has three high-performance computing instances that must compute with each other. The company would like to achieve maximum network performance between the instances. The company would like to achieve maximum network performance between the instances. The most important requirement is that these systems do not share the same rack. Which placement strategy should they use?
+Partition
+Cluster
+Spread(✓)
+Default
+
+Which use cases indicate that a non-relational database might be a better solution than a relational database? (Select Two)
+Horizontal scaling for massive data volume(✓)
+ACID compliance for all database transactions
+Data with unpredictable attributes(✓)
+Strong read-after-write consistency
+High availability and fault tolerance
+
+Which statement that compares a database service that Amazon Web Services (AWS) manages with a database on an Amazon Elastic Compute Cloud(Amazon EC2) instance is true?
+You do not need to configure backups for a database on a managed database service.
+AWS manages DB patches for a database on a managed database service.(✓)
+AWS manages operating system (OS) patches for a database on an EC2 instance.
+You do not need to configure backups for a database on an EC2 instance.
+
+Which examples are good use cases for Amazon RDS? (Select three)
+Thousands of distributed concurrent writes per second
+An application that requires the database to enforce syntax rules(✓)
+An application that requires complex joins of data(✓)
+A petabyte-scale data warehouse
+Running a Microsot SQL Server in AWS(✓)
+Database for a serverless architectures
+
+A small company is deciding which service to use for an enrollment system for their online training website. Choices are MySQL on Amazon EC2, MySQL in Amazon RDS, and Amazon DynamoDB. Which combination of use cases suggests using Amazon RDS? (Select three)
+Data and transactions must be encrypted to protect personal information
+The data is highly structured(✓)
+Student, course, and registration data are stored in many different tables.(✓)
+The enrollment system must be highly available.
+The company doesn't want to manage database patches.(✓)
+
+Which scenarios are good use cases for Amazon DynamoDB? (Select three)
+Database for serverless architectures(✓)
+Applications that require ACID transactions(✓)
+Applications that combine data from many tables
+Graph database to trace relationships ebtween entities
+Document database for JSON-based documents(✓)
+Binary large object(BLOB) storage
+
+A small game company is designing an online game, where thousands of players can create their own in-game objects. The current design uses a MySQL database in Amazon RDS to store data for player-created objects. Which use cases suggest that DynamoDB might be a better solution? (Select two)
+A set of common attributes that all player-created objects have
+Unpredictable attributes for player-created objects(✓)
+Large number of player-created objects, each with different attributes(✓)
+Quick search and retrieval of player-created objects
+High amount of read activity on player-created objects
+
+Which rtechniques should you use to secure an Amazon RDS database? (Select three)
+AWS IAM policies to define access at the table, row, and column levels
+Security groups to control network access to individual instances(✓) : Amazon RDS uses server instances, which means they deploy in an Amazon VPC which are then controlled access using security groups.
+An Amazon VPC gateway endpoint to prevent traffic from traversing the internet
+A Virtual Private Gateway(VGW) to filter traffic from restricted networks
+A VPC to provide instance isolation and firewall protection(✓)
+Encryption to protect sensitive data(✓)
+
+Which techniques should you use to secure Amazon DynamoDB? (Select three)
+An Amazon VPC gateway endpoint to prevent traffic from traversing the internet(✓) : A VPC gateway endpoint provides a route to DynamoDB that does not traverse the Internet.
+AWS IAM policies to define access at the table, item, or attribute level(✓) : IAM controls access to tables and data in DynamoDB.
+Security groups to control network access to individual instances
+Encryption to protect sensitive data(✓) : Data in DynamoDB is encrypted by default; it is a good idea to use client-side encryption to encrypt sensitive data in transit.
+A VPC to provide instance isolation and firewall protection
+A Virtual Private Gateway (VGW) to filter traffic from restricted networks
+
+A company wants to migrate their on-premises Oracle database to Amazon Aurora to MySQL. Which process describes the high-level steps?
+Use AWS Database Migration Service (AWS DMS) to migrate from the Oracle database to AWS Aurora MySQL
+Use AWS DMS to migrate the data, and then use AWS Schema Conversion Tool to convert the schema.
+Use AWS SCT to convert the schema, and then use AWS DMS to migrate the data. (✓)
+Use AWS SCT to synchronously convert the schema and migrate the data.
+
+You must perform a heterogenous migration from your on-premises facility to a database in a VPC. You will use AWS Snowball Edge and AWS DMS. At which point do you use AWS SCT?
+At the start, to extract data from the source database into the Snowball Edge, before shipping the device(✓)
+After extracting the data from the source by using AWS DMS, but  before shipping the Snowball Edge
+After the data is in the VPC, but before using AWS DMS to load the data into the target database
+After using AWS DMS to load the data into in the target database in the VPC
+
+Which definition describes a virtual private cloud (VPC)?
+A virtual private network (VPN) in the AWS Cloud
+An extension of an on-premises network into Amazon Web Services(AWS)
+A logically isolated virtual network that you define in the AWS Cloud(✓)
+A fully managed service that extends the AWS Cloud to customer premises
+
+Which actions are best practices for designign a VPC? (Select three)
+Match the size of the VPC CIDR block to the number of hosts that are required for a workload. : It is a good idea to have more CIDR blocks for future use.
+Use the same CIDR block as your on-premises network. : Might cause routing issues if the two networks are connected through AWS Direct Connect or a VPN.
+Divide the VPC network range evenly across all AZs available(✓)
+Create one subnet per AZ for each group of hosts that have unique routing requirements (✓) 
+Reserve some address space for future use.(✓)
+
+A company wants to run a highly available web tier by using two EC2 instances and a load balancer. Which design is valid and provides the highest availability?
+One subnet in one AZ. The subnet contains two EC2 instances.
+One subnet, which spans two AZs. Each AZ contains one EC2 instance.
+Two different subnets in the same AZ. Each subnet contains one EC2 instance.
+Two different subnets, one per AZ. Each subnet contains one EC2 instance.(✓)
+
+A company's VPC has the CIDR block 172.16.0.0/21 (2048 addresses). It has two subnets (A and B). Each subnet must support 100 usable addresses now, but this number is expected to rise at most 254 addresses soon. Which subnet addressing scheme meets the requirements and follows AWS best practices?
+Subnet A: 172.16.0.0/25 (128 addresses) Subnet B: 172.16.0.128/25 (1024) addresses
+Subnet A: 172.16.0.0/25 (128 addresses) Subnet B: 172.16.0.128/25 (128) addresses
+Subnet A: 172.16.0.0/23 (512 addresses) Subnet B: 172.16.2.0/25 (512) addresses : These CIDR blocks are the next larger size from /24. AWS reserves five addresses per subnet so each CIDR block has 507 usable addresses. This scheme provides room for the growth requirement(✓)
+Subnet A: 172.16.0.0/22 (128 addresses) Subnet B: 172.16.4.0/22 (1024) addresses
+
+Which combination of actions enables direct internet access for IPv4 hosts in a VPC? (Select three)
+Enabling DNS resolution for the VPC
+Creating a default route that points to the Virtual Private Gateway(VPG) : Used for AWS Direct Connect
+Configuring hosts to have or obtain an internet-routable address(✓)
+Configuring security groups and network ACLs to permit internet traffic(✓)
+Configuring the VPC domain name in a Dynamic Host Configuration Protocol(DHCP) options set
+Creating a route for 0.0.0.0/0 that points to the internet gateway(✓)
+
+A group of consultants require access to an EC2 instance from the internet, for 3 days consecutive days each week. The instance is shut down the rest of the week. The VPC has intenret access. How should you assign an IPv4 address to the instance to give the consultants access?
+Associate an Elastic IP address with the EC2 instance(✓)
+Enable automatic address assignment for the subnet
+Enable automatic address assignment for the EC2 instance
+Assign the IP address in the OS boot configuration
+
+Several EC2 instances launch in a VPC that has a internet access. These instances should not be accessible from the internet, but they must be able to download updates from the internet. How should the instances launch?
+With Elastic IP addresses, in a subnet with a default route to an internet gateway
+With public IP addresses, in a subnet with a default route to an internet gateway
+Without public IP addresses, in a subnet with a default route to an internet gateway
+Without public IP addresses, in a subnet with a default route to a Network Address Translation(NAT) gateway : NAT Gateway provides the EC2 instances with internet-routable source addresses for sessions that EC2 instances initiate. However it does not enable internet access to the instances.(✓)
+
+You are configuring a bastion host to access EC2 instances in a VPC. What must you do to the security groups? (Select two)
+Add a rule to the bastion host to deny all traffic from the internet. : Security groups deny traffic by default. You can only add rules that allow traffic.
+Add a rule to the bastion host to allow traffic from your source IP address.(✓)
+Add a rule to the bastion host to allow return traffic to your source IP address.
+Add a rule to the private subnet EC2 instances to allow traffic from the bastion host security group.(✓)
+Add a rule to the private subnet EC2 instances to allow return traffic to the bastion host security group. : Security groups are stateful, which means that you do not need to add rules for return traffic.
+
+You have a VPC with a public subnet and a secure subnet. All EC2 instances in the secure subnet must be able to communciate with specific internet addresses. How can you control traffic with a network ACL?
+Add rules to the default network ACL to allow traffic from and to allowed internet addresses.
+Add rules to the default network ACL to allow traffic from and to allowed internet addresses. Deny all other traffic.
+Add rules to the subnet custom network ACL to allow traffic from and to allowed internet addresses.(✓)
+Add rules to the subnet custom network ACL to allow traffic from and to allowed internet addresses. Deny all other traffic.
+
+All of the EC2 instances in a subnet can communicate with a certain IPv4 network on the Internet. How should you modify the securit groups or current custom network ACL to deny traffic to and from several restricted addresses in that network?
+In the network ACL, deny traffic to and from the restricted addresses : This solution is the easiest way to deny traffic to and from individual addresses. You can specify the individual addresses, or a range of addresses, to deny. These rules should have lower rule numbers than rules that allow traffic to and from the wider network.(✓)
+In the security groups, deny traffic to and from the restricted addresses.
+In the network ACL, allow traffic only to and from address ranges that exclude the restricted addresses. 
+In the security groups, allow traffic only to and from address ranges that exclude the restricted addresses. : Although this solution would work, network masking for CIDR blocks can make this complicated and difficult to manage.
+
+Which statement describes AWS IAM users?
+IAM users are used to control access to a specific AWS resource.
+IAM user names can represent a collection of individuals.
+Every IAM user for an account must have a unique name.(✓)
+Every IAM user name is unique across all AWS accounts.
+
+How can you grant the same level of permissions to multiple users within an account?
+Apply an AWS IAM policy to an IAM group.(✓)
+Apply an AWS IAM policy to an IAM role.
+Create a resource-based policy
+Create an organization in AWS Organizations
+
+Which statements descriube AWS IAM roles? (Select two)
+They are uniquely associated to an individual
+They can only be used by accounts associated to the person who creates the role
+They can be assumed by individuals, applications, and services(✓)
+They provide temporary security credentials(✓)
+They provide permanent security credentials
+
+Which statement describes a resource-based policy?
+It can be applied to any AWS resource.
+It can be an AWS managed policy
+It is attached to a user or group
+It is always an inline policy(✓)
+
+How does AWS IAM evalute a policy?
+It checks for explicit allow statements before it checks for explicit deny statements
+It checks for explicit deny statements before it checks for explicit allow statements(✓)
+If there is no explicit deny or explicit allow statement, users will have access by default
+An explicit deny statement does not override an explicit allow statement
+
+A team of developers needs access to several services and resources in a VPC for 9 months. How can you use AWS IAM to enable access for them?
+Create a single IAM user for the developer team and attach the required IAM policies
+Create an IAM user for each developer, and attach the required IAM policies to each IAM user. 
+Create an IAM user for each developer, put them all in an IAM group, and attach the required IAM policies to the IAM group. (✓)
+Create a single IAM user for the developer team, place it in an IAM group, and attach the required IAM policies to the IAM group.
+
+How does identity federation increase security for an application that is built in AWS?
+Users can use single sign-on(SSO) to access the application through an existing authenticated identity.(✓)
+The application can synchronize users' user names and passwords in AWS IAM with their social media accounts.
+The browser can establish a trust relationship with the application to bypass the need for MFA
+Users can use their AWS IAM accounts to log in to on-premises systems
+
+Which services can you use to enable identity federation for your applications that are built in AWS? (Select two)
+AWS Web Application Firewall (AWS WAF)
+AWS Key Management Service (AWS KMS)
+AWS Security Token Service (AWS STS)(✓)
+AWS Cloud Hardware Security Modules (AWS HSM)
+AWS Cognito(✓) : Enables adding of user sign-up, sign-in and access control to web and mobile apps. Supports identity federation with others
+
+What service helps you centrally manage billing; control access, compliance and security; and share resources across multiple AWS accounts?
+AWS IAM
+AWS Control Tower
+AWS Organizations(✓)
+AWS VPC peering
+
+A technology company's employees log in to their AWS accounts through AWS IAM users. They have administrator access and access to the root users. Which resource can prevent them from deleting the AWS CloudTrail logs?
+An IAM policy that is attached to each IAM user
+A service control policy (SCP) that is attached to the organization unit (OU)(✓) 
+: Applying SCP to the OU can prevent employees from deleting the logs. The SCP cannot be overriden by any user (including the root user) of the AWS accounts in the OU.
+An Amazon S3 bucket policy that is attached to logging buckets
+IAM users with administrative acess can override the S3 bucket policies
+
+What is caching?
+A high-speed data storage layer(✓)
+A way to store passwords
+A global network for content distribution
+An in-memory database
+
+Which types of data should you cache
+Data that can be retrieved quickly with simple queries
+Dynamically generated web content
+Static data that is frequently accessed(✓)
+Specialized data that is needed by a subset of users
+
+What is a benefit of caching?
+Reduced response latency(✓)
+Load balancing the applicaton
+Increased application reliability
+Decreased costs
+
+What does AWS CloudFront enable?
+Bidirectional caching between users and an origin host
+Multi-tiered and regional caching of content(✓)
+Transactional processing with an in-memory database
+Automatic creation of a time-to-live value
+
+How does AWS CloudFront use edge locations?
+It caches all content from an origin distribution at the edge location, and delivers the content through the fastest edge location.
+It caches local content at edge locations. It delievers the cached content to clients through the edge location that requires the fewest network hops to reach those clients.
+It caches frequently accessed content at edge locations. It delivers the cached content to clients through the edge location with the lowest latency to those clients.
+It caches Regional data at Regional edge locations, and delivers the content to clients through their Regional edge locations.
+
+Where is application session data cached when using sticky sessions?
+Web server(✓) : Sticky sessions is a feature of ELB. It directs repeated requests (from the same client) to the same server, which enables the server to cache session data.
+Web browser
+Elastic Load Balancing load balancer
+AWS CloudFront
+
+Which statement best describes an efficient way to deliver on-demand streaming content by using AWS CloudFront?
+CloudFront does not work with streaming content
+A best practice is to create separate origin servers for each Region where you serve streaming content.
+A best practice is to create distributions for each Region where you serve streaming content.
+A best practice is to create video segments and store them in an AWS S3 bucket. Then, use CloudFront to cache the segments.(✓)
+
+What is Amazon DynamoDB Accelerator (DAX)?
+A fully managed, highly available, in-memory cache for DynamoDB(✓)
+A feature of DynamoDB that automatically adjusts read/write capacity to handle load
+A fully managed, highly available cache that is backed by DynamoDB
+A feature of DynamoDB that enables fast lookup of items by using secondary keys
+
+How can an application use AWS ElastiCache to improve database read and performance?
+Read data from the database first and write the most frequently read data to ElastiCache.
+Direct all read requests to the database and configure it to read from ElastiCache when a cache miss occurs.
+Read data from ElastiCache first and write to ElastiCache when an cache miss occurs.(✓)
+Write data to ElastiCache whenever the application writes to the database.(✓)
+Replicates the database in ElastiCache, and direct all reads to ElastiCache and all writes to the database.
+
+Which role does AWS CloudFront play in protecting against distributed DDoS attacks?
+Routes traffic through edge locations.(✓)
+Controls traffic by the source IP address of requests.
+Restricts traffic by geography to help block attacks that originate from specific countries.
+Performs deep packet inspection to detect attacks.
+
+|===============|
+|System Coupling|
+|===============|
+Application-level coupling - relates to managing incoming and outgoing dependencies.
+Platform coupling relates - to the interoperability of heterogeneous systems. components
+Spatial coupling - relates to managing components at a network-topology level or protocol level.
+Temporal(or runtime) - coupling refers to the ability of a system component to do meaningful work while it performs a synchronous, blocking operation.
+

@@ -1,0 +1,35 @@
+Useful AWS commands
+
+Connect to EC2 instance via SSH
+ssh -i labsuser.pem ec2-user@<public-ip>
+
+
+Connect to systems manager session manager
+bash
+sudo su
+su ec2-user
+whoami
+cd /home/ec2-user/
+
+Check for RDS connection to EC2
+mysql -u admin -pc --host <rds-endpoint>
+
+Migrate SQL files to rds
+mysql -u admin -p --host <rds-endpoint> < CafeDbDump.sql
+
+Re:Start!9
+cafedatabase.ciewaeufn7hg.us-east-1.rds.amazonaws.com
+Caf3DbPassw0rd!
+
+34.238.167.103/cafe/menu.php
+
+Configure AWS Credentials
+aws configure
+
+Get AWS Credentials set
+aws configure list
+
+Create a VPC using CLI
+aws ec2 create-vpc --cidr-block <cidr block> --region <region>
+aws ec2 create-vpc --cidr-block 10.0.0.0/16 --region us-east-1
+
