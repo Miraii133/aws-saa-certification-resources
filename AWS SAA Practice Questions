@@ -431,11 +431,70 @@ Controls traffic by the source IP address of requests.
 Restricts traffic by geography to help block attacks that originate from specific countries.
 Performs deep packet inspection to detect attacks.
 
-|===============|
-|System Coupling|
-|===============|
-Application-level coupling - relates to managing incoming and outgoing dependencies.
-Platform coupling relates - to the interoperability of heterogeneous systems. components
-Spatial coupling - relates to managing components at a network-topology level or protocol level.
-Temporal(or runtime) - coupling refers to the ability of a system component to do meaningful work while it performs a synchronous, blocking operation.
+Which statement describes the difference between tightly and loosely coupled architectures?
+Components in a tightly coupled architect are highly dependent on each other, but they are not highly dependent in a loosely coupled architecture.(✓)
+Loosely coupled architectures must use managed services, and tightly coupled architectures do not have this limitation.
+Tightly coupling any part of an architecture means that the entire architecture is tightly coupled, but this principle does not apply to a loosely coupled architecture.
+Tightly coupled architectures are more likely to fail than loosely coupled architectures.
+
+Which phrases describe AWS SQS? (Select THREE.)
+Sends push notifications to consumers
+Stores and encrypts messages until they are processed and deleted(✓)
+Supports email and text messaging
+Enables you to decouple and scale microservices, distributed systems, and serverless applications(✓)
+Uses a pull mechanism(✓)
+Supports standard queues and last-in-first-out(LIFO) queues
+
+Which scenarios indicate that you should use an AWS SQS standard queue? (Select TWO)
+A message might need to be delivered more than once(✓)
+Message prioritization is necessary
+Messages must be processed in the order they are sent
+A message must be processed only once
+Messages can be sent in any order(✓)
+
+A fleet of AWS EC2 instances process videos that users upload. Which function can AWS SQS perform in this application?
+An SQS queue receives messages from the application and notifies all available EC2 instances that videos are available.
+The application places job messages in an SQS queue. EC2 instances with available processing capacity pull the next job message from the queue.(✓)
+The application writes the viedeo files to an SQS queue. EC2 instances with available processing capacitiy pull the next video from the queue.
+EC2 instances put edited video files in an SQS queue. The application retrieves the videos from the queue.
+
+What is AWS SNS?
+A cost-effective, flexible, and scalable email service that enables developers to send email from within any application
+A serverless event bus that enables easy connection of applications by using data from your own applications, integrated SaaS applications and AWS services
+A fully managed messaging service for both system-to-system and application-to-person (A2P) communication, which uses publish/subscribe(pub/sub) patterns(✓)
+A flexible and scalable outbound and inbound marketing communications service that uses email, SMS, push or voice communication channels
+
+What are some use cases for AWS SNS? (Select THREE.)
+Gather streaming data from multiple systems.
+Notify multiple systems that user input is ready for processing(✓)
+Trigger a single AWS Lambda function when an object is created in an AWS S3 bucket.
+Hold input until it can be processed in the order it was received
+Send a push notification to mobile applications when a new software update is available(✓)
+Send a text message to systems operators when unusualy activity has been detected(✓)
+
+What are some features of AWS SNS? (Select THREE)
+Message delivery to an AWS SQS queue(✓)
+Recall of sent messages
+Guaranteed message delivery
+Message delivery to a URL(✓)
+Support for encryption(✓)
+Automatic message sorting by time 
+
+What is Amazon MQ?
+Managed queue service
+Message broker service(✓)
+Identity broker service
+Message query service
+
+What is a good use case for Amazon MQ?
+Connecting a VPC to an on-premises network
+Decoupling components in a new cloud-native application
+Uploading a standalone static website to AWS
+Migrating an existing on-premises application that uses Apache ActiveMQ to communicate between microservices
+
+Two AWS Lambda functions must simultaneously process PDF files when they are uploaded to an AWS S3 bucket. The S3 event notification allows only one action when the PDF files are uploaded. Which solution provides the simplest and most efficient way to trigger both Lambda functions?
+Send the S3 event to AWS MQ for distribution to both Lambda functions.
+Send the S3 event to an AWS SQS queue that both Lambda functions poll.
+Send the S3 event to an AWS SNS topic that both Lambda functions subscribe to.(✓)
+Upload two copies of each PDF file by using different object key prefixes
 

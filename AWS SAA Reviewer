@@ -36,6 +36,8 @@ Availability Zone - Contains Two or more Data Centers.
 
 ENI (Elastic Network Interfaces) - Gives EC2 instances access to the network as a Virtual Network Card.
 
+Elasticity - Ability to acquire resources as you need them and release resources when you no longer need them.
+
 IOPS (Input/Output Operations Per Second) - is the standard unit of measurement for the maximum number of reads and writes to non-contiguous storage locations. 
 
 Golden AMI - is an AMI that contains the latest security patches, software, configurations, that you need to install for logging, security maintenance and performance monitoring.
@@ -44,9 +46,9 @@ Horizontal Scaling - is adding additional nodes or adding more machines of simil
 
 Vertical Scaling - is adding more power to your current machines to your workload.
 
-Scaling out - Adding more resources
+Scale out - Adding more resources
 
-Scaling in - Reducing/removing resources
+Scale in - Reducing/removing resources
 
 ACID - Atomicity, Consistency, Isolation, and Durability. A set of principles that ensure database transactions are processed reliably.
 Atomicity - refers to how a given set of database operations must all either complete successfully or fail altogether. Either transaction must finish and update or revert the database to old state if transaction fails.
@@ -63,6 +65,8 @@ Cache miss - If the cache does not contain the read data requested
 Stale data - Data that is expired or is very old
 
 Time to Live (TTL) - Lifespan of a data in a computer or network
+
+CI/CD- is the combined practices of continuous integration and continuous delivery or continuous deployement.
 |===============================================|
 |6 Pillars of the AWS Well-Architected Framework|
 |===============================================|
@@ -955,6 +959,14 @@ Time to live(TTL) - An integer value or key that specifies the number of seconds
 -Messages are encrypted and stored until they are processed and deleted
 -Acts as a buffer between producers and consumers
 
+|===============|
+|System Coupling|
+|===============|
+Application-level coupling - relates to managing incoming and outgoing dependencies.
+Platform coupling relates - to the interoperability of heterogeneous systems. components
+Spatial coupling - relates to managing components at a network-topology level or protocol level.
+Temporal(or runtime) - coupling refers to the ability of a system component to do meaningful work while it performs a synchronous, blocking operation.
+
 Producer - Application component that produces messages and adds them to queue
 Consumer - Application component that polls queue for messages and processes them
 Message - for communication between software components - not between people
@@ -1028,4 +1040,112 @@ Mobile push notifications - Use AWS SNS to send notifications to an application,
 Message Brokers - software that facilitates the exchange of messages between applications, systems, and services. It allows linked systems to communicate directly, even if they're built using different technologies, deployed on separate platforms, or use distinct messaging protocols.
 
 
+|=============|
+|Microservices|
+|=============|
+-Applications that are composed of independent services that communicate over well-defined APIs
+-Improves maintainability and scalability of software applications
+
+Common characteristics of Microservices:
+Decentralized - Microservice architectures are distributed systems with decentralized management. They dont' rely on a unifying schema in a central database. Each microservice has its own view about data models.
+
+Independent - Each component service can be changed, upgraded or replaced independently without affect the function of other services. Services do not need to share any of their code or implementation with other services.
+
+Specialized - Each component service is designed for set capabilities and focuses on a specific domain.
+
+Polyglot - Microservices don't follow a single approach. Teams have the freedom to choose the best tool for their specific problem.
+
+Black boxes - Individual component services are designed as black boxes and their details of complexity are hidden from other components.
+
+|=========|
+|Container|
+|=========|
+-A method of operating system virtualization that enables you to run an application and its dependencies in resource-isolated processes. 
+-Are lightweight, standalone software package.
+-Contains everything that a software appliaction needs to run such as the application code, runtime engine, system tools, system libraries, and configurations
+
+A problem that containers solve
+-Getting software to run reliably in different work environments
+-Ensures that applications deploy quickly, reliably, and consistently, regardless of deployment environments.
+
+Container terminology
+Image - Used to create a container using a read-only template.
+-Typically built from a Dockerfile, which is a plaintext file that specifies all the components that are included in the container.
+-Can create images from scratch, or use images that others created
+
+Container image - Is the snapshot of the file system that is available to the container. 
+-For example, having a Debian OS as a container image means the container will have a Debian OS when run.
+
+Registry - Where container images are stored.
+-Can download the images from the registry and run on cluster.
+-Registries can exist in or outside AWS infrastructure.
+
+|===================================|
+|AWS Elastic Container Service (ECS)|
+|===================================|
+-Orchestrates when containers run
+-Maintains and scales the fleet of instances that run your containers
+-Removes complexity of standing up the infrastructure
+-Highly scalable, high-performance, container-management service
+-Supports Docker containers and enables you to easily run applications on a managed cluster of AWS EC2 instances
+-Can be launched with either AWS Fargate or AWS EC2
+
+|=============|
+|AWS Cloud Map|
+|=============|
+-A fully managed discovery service for cloud resources
+-Can be used to define custom names for application resources
+-Maintains updated location of dynamically changing resources, which increases application availability
+
+|============|
+|AWS App Mesh|
+|============|
+-A service mesh that provides application-level networking to make it easy for your services to communicate with each other across multiple types of compute infrastructure
+-Captures metrics, logs, and traces from all your microservices
+-Enables exporting of this data to Amazon CloudWatch, AWS X-Ray, and compatible AWS Partner Network
+
+|===========|
+|AWS Fargate|
+|===========|
+-Fully managed container service
+-Works with AWS and Amazon Elastic Kubernetes Service (AWS EKS)
+-Provisions, manages, and scales your container clusters
+-Provides automatic scaling
+-Manages runtime environment
+-Enables developer to focus on designing and building applications instead of managing the infrastructure that runs them
+
+
+|==========|
+|Serverless|
+|==========|
+-A way to build and run applications and services without thinking about servers
+-Native architecture of the cloud that shifts operational responsibilities to AWS, which can increase agility and innovation
+-Application still runs on servers, however, AWS does all the server management tasks such as server or cluster provisioning, patching, operating system maintenance, and capacity provisioning.
+
+Tenets of serverless architectures
+-No infrastructure provisioning, no management
+-Automatic scaling (Scales by uinit of work or consumption rather than by sertver unit)
+-Pay for value (Pay only for the duration that a resource runs, rather than by server unit)
+-Highly available and secure (Built-in availability and fault tolerance)
+
+|==========|
+|AWS Lambda|
+|==========|
+-Fully managed compute service
+-Runs code on a schedule or in response to events(for example, changes to an AWS S3 bucket or an AWS DynamoDB table)
+-Supports Java, Go, C#, etc.
+-Can run at edge locations closer to your users
+-Handles all administration of the compute resources, including server and operating system maintenance, capacity provisioning, automatic scaling, etc.
+
+Lambda Function - custom code that you write in one of the languages that Lambda supports.
+-Lambda functions are stateless, which means that they have no affinity to the underlying infrastructure.
+-Can rapidly as many copies of the function needed to scale to the rate of incoming events
+
+|===============|
+|AWS API Gateway|
+|===============|
+-Enables creation, publish, maintain, monitor and secure APIs that act as entry points to backend resources
+-Can be used to create RESTful and WebSocket APIs that act as entry points for apps to access backend resources
+-Handles up to hundreds of thousands of concurrent API calls
+-Can host and use multiple version and stages of API
 
