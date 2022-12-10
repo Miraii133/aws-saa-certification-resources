@@ -498,3 +498,68 @@ Send the S3 event to an AWS SQS queue that both Lambda functions poll.
 Send the S3 event to an AWS SNS topic that both Lambda functions subscribe to.(✓)
 Upload two copies of each PDF file by using different object key prefixes
 
+What are characteristics of components in a microservice architecture? (Select THREE)
+Open-source code
+Industry-standard interfaces
+Hidden implementation(✓)
+Specialized function(✓)
+HTTP(S) communication
+Independence from other components(✓)
+
+What is a container?
+An operating system that runs a virtual machine
+A method of operating system virtualization(✓)
+A virtual storage location in the cloud
+A portable package of code and libraries
+
+What is the most effective use of AWS Elastic Container Service(AWS ECS) when refactoring a monolithic application to use a microservice architecture?
+Create services that each provide a distinct function of the application, and run each service in a separate container that AWS ECS manages.(✓)
+Create services that each provide a distinct function of the application, and run each service in a single container that AWS ECS manages.
+Port the application to a new image and run it in a container that AWS ECS manages.
+Refactor the application and centralize common functions to create a smaller code footprint.
+
+What is AWS Fargate?
+A fully managed service for orchestrating container clusters : AWS ECS description
+A tool for developing software that uses field-programmable gate arrays(FPGA)
+A service that seamlessly extends AWS services to edge devices
+A service that enables you to run containers without needing to manage servers or clusters(✓) : AWS Fargate is a compute engine for containers that works with AWS ECS and AWS Elastic Kubernetes Service(AWS EKS)
+
+What is a serverless architecture in AWS?
+An architecture that does not use any on-premises servers
+An architecture that only uses managed services
+An architecture where you do not provision or manage infrastructures(✓)
+An architecture that uses microservices instead of monolithic servers
+
+What are benefits of serverless computing in AWS? (Select THREE)
+Lower total cost of ownership(✓)
+Less complicated software architectures
+More focus on the application(✓)
+Ability to build microservice applications(✓)
+Looser coupling between components
+Automatic fault tolerance
+
+How do you scale AWS Lambda functions to ensure high availability?
+Provision enough function instances to meet the maximum predicted load
+Launch functions in Auto Scaling groups
+Enable auto scaling in the function
+Do nothing special because functions scale automatically(✓)
+
+An environmental science organization wants to provide HTTPS read-only access to its sensors and databases to any users around the world. The goal is enabling users to create their own custom real-time data visualizations to help improve climate science. Which solution is efficient and secure?
+Create web proxy servers on AWS EC2 instances in an Auto Scaling group, which is served by an Elastic Load Balancing load balancer
+Create user accounts in the organizations' systems to allow access.
+Create a public interface to the sensors and databases by using AWS API Gateway(✓)
+Create a microservices architecture by using AWS ECS.
+
+Which workflows are supported by AWS Step Functions? (Select THREE)
+Update inventory and initiate shipment when a customer purchases an item on an ecommerce site(✓)
+Send messages to multiple AWS EC2 instances when a file is created or modified in an AWS S3 bucket
+Consolidate data from multiple databases into unified reports(✓)
+Notify a group of email addresses when the cost for an AWS account exceed a threshold
+Deploy different kinds of infrastructure that are based on variables
+Coordinate multi-step analytics and machine learning workflows(✓) : These workflows involve multi-step operations and decision making, both of which can be automated
+
+What is a serverless solution for creating a simple web form?
+Host static assets in an AWS S3 bucket, use an AWS DynamoDB table, and use AWS API Gateway and AWS Lambda functions to interact with the database(✓)
+Host website assets in a container in an AWS ECS cluster, use an AWS DynamoDB table, and use server-side scripts to interact with the database
+Host static assets in an AWS S3 bucket, use an AWS RDS database, and use AWS API Gateway and AWS Lambda functions to interact with the database
+Host website assets in an AWS EC2 cluster, use an AWS RDS database, and use server-side scripts to interact with the database : RDS is not serverless

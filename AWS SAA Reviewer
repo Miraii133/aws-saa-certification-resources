@@ -1149,3 +1149,137 @@ Lambda Function - custom code that you write in one of the languages that Lambda
 -Handles up to hundreds of thousands of concurrent API calls
 -Can host and use multiple version and stages of API
 
+|=============================|
+|Recovery Point Objective(RPO)|
+|=============================|
+-Is the maximum acceptable amount of data loss, measured in time.
+-For example, the business can recover from losing (at most) the last 8 hours of data.
+-Organizations of all sizes often have a Business Continuity Plan (BCP) which revolves around providing IT Service Continuity, including IT disaster recovery planning
+-To calculate RPO, first determine how much data loss is acceptable, according to BCP. Then, figure out how quickly that data loss
+
+|============================|
+|Recovery Time Objective(RTO)|
+|============================|
+-Maximum acceptable amount of time after disaster strikes that a business process can remain out of commission
+-The time it takes after a disruption to restore your applications and recover data.
+
+|============|
+|AWS DataSync|
+|============|
+-Provides movement of large amounts of data online between on-premises storage and AWS S3, AWS EFS, or AWS FSx for Windows File Server. 
+-Supports scripted copy jobs and schedule data transfers from on-premises NFS and Server Message Block(SMB) storage.
+-Can optionally use AWS Direct Connect links
+
+Best Practice: AWS S3 Cross-Region Replication
+-Most S3 storage classes replicate data across Availability Zones within a single Region
+-Configuire S3 cross-Region replication for higher-level data security
+Automatically, asynchronously replicates objects created after you add the replication configuration
+Can also help meet compliance requirements and reduce latency  for users who are accessing objects
+
+Best Practice: EBS Volume Snapshots
+-Can backup the data that is on EBS volumes to AWS S3 by taking point-in-time snapshots
+-Snapshots are incremental backups, which means that it saves only the blocks on the device that have changed since the most recent snapshot.
+-Minimizes the time that is required to create the snapshot, and saves on storage by not duplicating data
+-Each snapshot contains all the information that is needed to restore data (from teh moment when the snapshot was taken) to a new EBS volume.
+-New snapshot acts as an exact replica of the original volume
+-Replicated volume loads data in the background for immediate use.
+
+|==========================|
+|AWS Data Lifecycle Manager|
+|==========================|
+-Automates the creation, retention, and deletion of snapshots that backup your EBS volumes.
+-Helps protect valuable data by enforcing a regular backup schedule
+-Retain backups as required by auditors or internal compliance
+-Reduce storage costs by deleting outdated backups
+
+Networking: Design for resilience, recovery
+AWS Route 53 - provides load balancing and networking routing capabilities that enable you to distribute network traffic.
+Also provides the ability to fail over between multiple endpoints and even to a static website that is hosted in AWS S3.
+
+AWS ELB - automatically distributes incoming application traffic across multiple EC2 instances. 
+-Enables to achieve fault tolerance in applications by providing the load-balancing capacity that is needed in response to incoming application traffic
+
+AWS VPC - to extend an existing on-premises network topology to the cloud
+-Can be appropriate when recovering enterprise applications that might be hosted on an internal network
+
+AWS Direct Connect - simplifies the setup of a dedicated network from an on-premises data center to AWS
+-Reduces network costs, increase bandwidth throughput and provide a more consistent network experience than internet-based connections
+
+Databases: Features that support recovery
+AWS RDS - STakes snapshot data and save it in a separate Region
+-Combine read replicas with Multi-AZ deployements to build a resilient disaster recovery strategy
+-Retain automated backups
+
+AWS DynamoDB
+-Backup entire tables in seconds
+-Use point-in-time-recovery to continuously back up tables for up to 35 days
+-Initiate backups with a single click in the console or a single API call
+
+
+Automation Services; Quickly replicate or redeploy environments
+AWS CloudFormation - Use templates to quickly deploy collections of resources as needed
+-Duplicate production environments in new Region or VPC in minutes
+-Provisions resources in a repeatable manner, which enables building and rebuilding of infrastructure and applications
+-Not required to perform manual actions or write custom scripts
+
+AWS Elastic Beanstalk - Quickly redeploy your entire stack in only a few clicks
+
+AWS OpsWorks - Automatic host replacement
+-Combine it with AWS CloudFormation in the recovery phase
+-Provision a new stack that supports the defined RTO
+
+
+|==============================|
+|Four disater recovery patterns|
+|==============================|
+Backup and restore
+Pilot light
+Warm standby
+Multi-site
+
+Each pattern is suited to a different combination of:
+RPO
+RTO
+Cost-effectiveness
+
+Backup and restore pattern
+-Data is backed up to tape and sent offsite regularly. 
+-Takes a logn time to restore system when a disaster occurs
+-Data from on-premise server sent to AWS storages and then retrieved when recovery is needed
+
+|===================|
+|AWS Storage Gateway|
+|===================|
+-Is a hybrid storage service that enables on-premises applications to use AWS Cloud storage.
+-Can use the service for backup and archiving, disaster recovery, cloud processing, storage tiering and migration
+-Applications connect to the service through a VM or hardware gateway appliance by using standard storage protocols.
+
+Pilot light pattern
+-A minimal backup version of environment is always running.
+-Analogy comes from a gas heater: a small flame is always on, even when the heater is off.
+-Pilot light can quickly ignite the entire furnace to heat a house.
+-Pilot light is the secondary database that is always running
+-Similar to backup-and-restore scenario, however recovery time is typcailly faster because the core pieces of the system are already running and are continually kept-up-to-date
+-When time comes for recovery, can rapidly provision a full production environment around the critical core
+-Pattern is relatively inexpensive to implement
+
+Warm standby pattern
+-Similar to the pilot light, but more resources are already running
+-A scaled-down version of a fully functional environment is always running in the cloud
+-Necessary components running 24/7
+-Further decreases the recovery time because some services are always running.
+-Can then quickly begin to scale up to handle the production load when AWS Route53 switches over from main system to secondary system.
+
+Multi-Site pattern
+-Have a fully functional system that runs in a second Region of AWS.
+-Runs at the same time as the on-premises systems or the systems that run in a different AWS region
+-Runs in an active-active configuration
+-Data replication method that is employed is determined from the recovery point that is chosen
+
+|===================|
+|Summary of Patterns|
+|===================|
+-The backup and restore pattern typically can be accomplished at the lowest cost, but it has a longer RTO. As a result, your systems are likely to be restored more slowly than with the other options.
+
+-The warm standby and multi-site patterns support a much faster RTO, but it is costly to have extra servers that are always running.
+
