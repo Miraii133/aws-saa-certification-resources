@@ -67,6 +67,9 @@ Stale data - Data that is expired or is very old
 Time to Live (TTL) - Lifespan of a data in a computer or network
 
 CI/CD- is the combined practices of continuous integration and continuous delivery or continuous deployement.
+
+Pubic IP - Machines can be identified on the Internet
+	
 |===============================================|
 |6 Pillars of the AWS Well-Architected Framework|
 |===============================================|
